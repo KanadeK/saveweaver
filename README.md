@@ -229,7 +229,7 @@ jobs:
   saves:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: KanadeK/saveweaver@v0.1.0
         with:
           project: path/to/save-contract
@@ -302,7 +302,7 @@ The release gate is:
 node scripts/verify.mjs
 ```
 
-It performs syntax/JSON/link/secret checks, formatting checks, 81 tests with
+It performs syntax/JSON/link/secret checks, formatting checks, 85 tests with
 coverage thresholds, the example contract lock, the four-row compatibility
 matrix, deterministic npm/portable packaging, checksums, a clean temporary
 package install, and an installed-CLI matrix smoke test.
