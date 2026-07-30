@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "save_version": 1,
+    "build": "0.8.4"
+  },
+  "player": {
+    "name": "Nova",
+    "xp": 1250,
+    "credits": 800
+  },
+  "difficulty": "hard",
+  "inventory": [
+    {
+      "item": "laser_cell",
+      "qty": 6
+    },
+    {
+      "item": "repair_kit",
+      "qty": 2
+    }
+  ],
+  "unlocks": [
+    "dash",
+    "wingmate"
+  ]
+}

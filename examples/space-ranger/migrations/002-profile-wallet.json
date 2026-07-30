@@ -1,0 +1,58 @@
+{
+  "id": "002-profile-wallet",
+  "from": 2,
+  "to": 3,
+  "description": "Split player data into profile, stats, and wallet while rebalancing experience.",
+  "operations": [
+    {
+      "op": "assert",
+      "path": "/player/experience",
+      "type": "integer"
+    },
+    {
+      "op": "copy",
+      "from": "/meta/build",
+      "to": "/meta/migrated_from_build"
+    },
+    {
+      "op": "move",
+      "from": "/player/name",
+      "to": "/profile/display_name",
+      "create_parents": true
+    },
+    {
+      "op": "move",
+      "from": "/player/experience",
+      "to": "/stats/experience",
+      "create_parents": true
+    },
+    {
+      "op": "number",
+      "path": "/stats/experience",
+      "multiply": 1.2,
+      "round": "floor"
+    },
+    {
+      "op": "move",
+      "from": "/player/level",
+      "to": "/stats/level",
+      "create_parents": true
+    },
+    {
+      "op": "move",
+      "from": "/player/credits",
+      "to": "/wallet/credits",
+      "create_parents": true
+    },
+    {
+      "op": "set_default",
+      "path": "/wallet/tokens",
+      "value": 0,
+      "create_parents": true
+    },
+    {
+      "op": "delete",
+      "path": "/player"
+    }
+  ]
+}

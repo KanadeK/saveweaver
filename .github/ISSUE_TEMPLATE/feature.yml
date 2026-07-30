@@ -1,0 +1,36 @@
+name: Feature request
+description: Propose a deterministic, offline save-compatibility capability.
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: risk
+    attributes:
+      label: Player or release risk
+      description: What concrete save-compatibility failure does this prevent?
+    validations:
+      required: true
+  - type: textarea
+    id: data
+    attributes:
+      label: Input and expected output
+      description: Show a small synthetic JSON example.
+    validations:
+      required: true
+  - type: textarea
+    id: failure
+    attributes:
+      label: Failure semantics
+      description: How should missing paths, wrong types, and partial failure behave?
+    validations:
+      required: true
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Design constraints
+      options:
+        - label: The behavior can be deterministic and offline.
+          required: true
+        - label: The migration can remain data-only and execute no user code.
+          required: true

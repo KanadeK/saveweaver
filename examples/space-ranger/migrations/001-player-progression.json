@@ -1,0 +1,48 @@
+{
+  "id": "001-player-progression",
+  "from": 1,
+  "to": 2,
+  "description": "Rename XP and item quantities, add a level, and normalize difficulty names.",
+  "operations": [
+    {
+      "op": "assert",
+      "path": "/player",
+      "type": "object"
+    },
+    {
+      "op": "rename",
+      "from": "/player/xp",
+      "to": "/player/experience"
+    },
+    {
+      "op": "set_default",
+      "path": "/player/level",
+      "value": 1
+    },
+    {
+      "op": "for_each",
+      "path": "/inventory",
+      "operations": [
+        {
+          "op": "rename",
+          "from": "/qty",
+          "to": "/quantity"
+        }
+      ]
+    },
+    {
+      "op": "map_value",
+      "path": "/difficulty",
+      "cases": [
+        {
+          "from": "normal",
+          "to": "standard"
+        },
+        {
+          "from": "hard",
+          "to": "veteran"
+        }
+      ]
+    }
+  ]
+}

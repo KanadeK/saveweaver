@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Space Ranger save v1",
+  "type": "object",
+  "required": [
+    "meta",
+    "player",
+    "difficulty",
+    "inventory",
+    "unlocks"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": [
+        "save_version",
+        "build"
+      ],
+      "properties": {
+        "save_version": {
+          "const": 1
+        },
+        "build": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "player": {
+      "type": "object",
+      "required": [
+        "name",
+        "xp",
+        "credits"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "xp": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "credits": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "difficulty": {
+      "enum": [
+        "normal",
+        "hard"
+      ]
+    },
+    "inventory": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "required": [
+          "item",
+          "qty"
+        ],
+        "properties": {
+          "item": {
+            "type": "string",
+            "minLength": 1
+          },
+          "qty": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "unlocks": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,27 @@
+name: SaveWeaver Compatibility Gate
+description: Validate game-save schemas, migration locks, and real old-save fixtures in CI.
+author: KanadeK
+branding:
+  icon: shield
+  color: purple
+inputs:
+  project:
+    description: Directory containing saveweaver.json
+    required: false
+    default: .
+  command:
+    description: Gate to run (check or matrix)
+    required: false
+    default: check
+  report:
+    description: Optional Markdown matrix report path
+    required: false
+    default: saveweaver-matrix.md
+outputs:
+  result:
+    description: pass or fail
+  report:
+    description: Markdown report path
+runs:
+  using: node24
+  main: action/index.js

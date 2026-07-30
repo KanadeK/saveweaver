@@ -1,0 +1,69 @@
+{
+  "current_version": 3,
+  "fixtures": [
+    {
+      "change_count": 16,
+      "deterministic": true,
+      "file": "fixtures/v1/fresh-cadet.json",
+      "idempotent": true,
+      "migrations": [
+        "001-player-progression",
+        "002-profile-wallet"
+      ],
+      "output_sha256": "847154e0dccc87b9747d6db4ca674394c23b6e66aa6dfb3cea398241f66e01e2",
+      "source_sha256": "9893f6197847952d84f8b2d5ccc173f7fd540a90bc831da127866c1e2e092047",
+      "source_version": 1,
+      "status": "pass",
+      "target_version": 3
+    },
+    {
+      "change_count": 20,
+      "deterministic": true,
+      "file": "fixtures/v1/veteran.json",
+      "idempotent": true,
+      "migrations": [
+        "001-player-progression",
+        "002-profile-wallet"
+      ],
+      "output_sha256": "52625a7adaa49ee24969a4f3aa2c6f2006452541b02ed5faa4125f27be9cd8d7",
+      "source_sha256": "f9075956e8d66948eba80463c5d68cb69f1624c6eafc12bc67ff9fe416584423",
+      "source_version": 1,
+      "status": "pass",
+      "target_version": 3
+    },
+    {
+      "change_count": 12,
+      "deterministic": true,
+      "file": "fixtures/v2/shipyard.json",
+      "idempotent": true,
+      "migrations": [
+        "002-profile-wallet"
+      ],
+      "output_sha256": "dfb9f721b862c80224b0c916a6f589e9ae1fb1dc3e29f4c18e3e76af399104d2",
+      "source_sha256": "ec0c283e47f968e33743b91a5f3920ff8d38ddddd2c106448ab6d41f6032ccc9",
+      "source_version": 2,
+      "status": "pass",
+      "target_version": 3
+    },
+    {
+      "change_count": 0,
+      "deterministic": true,
+      "file": "fixtures/v3/current.json",
+      "idempotent": true,
+      "migrations": [],
+      "output_sha256": "1e98739891be876f8872637ee062296423449a3dade2c6f08fdaf4c3a7aff77c",
+      "source_sha256": "1e98739891be876f8872637ee062296423449a3dade2c6f08fdaf4c3a7aff77c",
+      "source_version": 3,
+      "status": "pass",
+      "target_version": 3
+    }
+  ],
+  "format": 1,
+  "project": "space-ranger",
+  "summary": {
+    "failed": 0,
+    "ok": true,
+    "passed": 4,
+    "total": 4
+  }
+}

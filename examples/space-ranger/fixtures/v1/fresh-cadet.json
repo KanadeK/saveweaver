@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "save_version": 1,
+    "build": "0.7.9"
+  },
+  "player": {
+    "name": "Mira",
+    "xp": 0,
+    "credits": 100
+  },
+  "difficulty": "normal",
+  "inventory": [],
+  "unlocks": []
+}

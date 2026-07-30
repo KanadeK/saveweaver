@@ -1,0 +1,22 @@
+{
+  "format": 1,
+  "name": "space-ranger",
+  "current_version": 3,
+  "version_pointer": "/meta/save_version",
+  "schemas": {
+    "1": "schemas/v1.schema.json",
+    "2": "schemas/v2.schema.json",
+    "3": "schemas/v3.schema.json"
+  },
+  "migrations": [
+    "migrations/001-player-progression.json",
+    "migrations/002-profile-wallet.json"
+  ],
+  "fixture_dirs": [
+    "fixtures"
+  ],
+  "lock_file": ".saveweaver.lock.json",
+  "policy": {
+    "require_all_schemas": true
+  }
+}

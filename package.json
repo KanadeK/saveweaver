@@ -1,0 +1,57 @@
+{
+  "name": "game-saveweaver",
+  "version": "0.1.0",
+  "description": "Engine-agnostic game-save migration, compatibility testing, and audit receipts for CI.",
+  "type": "module",
+  "bin": {
+    "saveweaver": "bin/saveweaver.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "action",
+    "action.yml",
+    "bin",
+    "docs",
+    "src",
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "README.md",
+    "SECURITY.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "check": "node scripts/static-check.mjs",
+    "format:check": "node scripts/format-check.mjs",
+    "test": "node --test",
+    "test:coverage": "node --test --experimental-test-coverage --test-coverage-lines=90 --test-coverage-functions=90 --test-coverage-branches=80",
+    "example": "node bin/saveweaver.js matrix --project examples/space-ranger",
+    "package:release": "node scripts/package-release.mjs",
+    "verify": "node scripts/verify.mjs"
+  },
+  "keywords": [
+    "game-development",
+    "game-save",
+    "gamedev",
+    "github-action",
+    "json-schema",
+    "migration",
+    "savegame",
+    "testing"
+  ],
+  "author": "KanadeK",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KanadeK/saveweaver.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KanadeK/saveweaver/issues"
+  },
+  "homepage": "https://github.com/KanadeK/saveweaver#readme"
+}

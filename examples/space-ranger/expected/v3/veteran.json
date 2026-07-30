@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "save_version": 3,
+    "build": "0.8.4",
+    "migrated_from_build": "0.8.4"
+  },
+  "profile": {
+    "display_name": "Nova"
+  },
+  "stats": {
+    "experience": 1500,
+    "level": 1
+  },
+  "wallet": {
+    "credits": 800,
+    "tokens": 0
+  },
+  "difficulty": "veteran",
+  "inventory": [
+    {
+      "item": "laser_cell",
+      "quantity": 6
+    },
+    {
+      "item": "repair_kit",
+      "quantity": 2
+    }
+  ],
+  "unlocks": [
+    "dash",
+    "wingmate"
+  ]
+}

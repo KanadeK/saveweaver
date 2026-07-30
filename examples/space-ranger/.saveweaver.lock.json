@@ -1,0 +1,35 @@
+{
+  "current_version": 3,
+  "files": [
+    {
+      "path": "migrations/001-player-progression.json",
+      "sha256": "f0b177008da5485d6b3923a4e10caba7d36b9a085bd12b3b098838dc5d2d9987"
+    },
+    {
+      "path": "migrations/002-profile-wallet.json",
+      "sha256": "1e5a47f41102c62c3671f2f6854c68e50080ed3c09006e7282cac65fa6dcbca0"
+    },
+    {
+      "path": "saveweaver.json",
+      "sha256": "a6465800f8045f5e7dc6c34e5928ca00e726be470bc10bf82381bf7c6d26d8f0"
+    },
+    {
+      "path": "schemas/v1.schema.json",
+      "sha256": "ca21a87c531da1ed0aa330a7c2a4640a2ec7e8b0bbe87059dd6233a1e91c9293"
+    },
+    {
+      "path": "schemas/v2.schema.json",
+      "sha256": "adcf79b0bf334b66031bd0cf3f2057eda95d656e56c0ebaa4668052cfb471678"
+    },
+    {
+      "path": "schemas/v3.schema.json",
+      "sha256": "117d4c11ba9e527b5cbb2a75263210cd057ef10fb554cb64b417602bd0b9fce1"
+    }
+  ],
+  "format": 1,
+  "project": "space-ranger",
+  "tool": {
+    "name": "game-saveweaver",
+    "version": "0.1.0"
+  }
+}

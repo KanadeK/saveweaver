@@ -1,0 +1,50 @@
+name: Bug report
+description: Report a reproducible migration, validation, CLI, or packaging problem.
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not attach real player saves or secrets. Replace them with a minimal synthetic fixture.
+  - type: input
+    id: version
+    attributes:
+      label: SaveWeaver version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: runtime
+    attributes:
+      label: Node.js version and operating system
+      placeholder: Node 24.18.0 on Windows 11
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include synthetic config, schema, migration, fixture, and exact command.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior and complete error
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Data safety
+      options:
+        - label: I removed player data, proprietary content, and credentials.
+          required: true

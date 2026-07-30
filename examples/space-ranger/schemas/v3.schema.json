@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Space Ranger save v3",
+  "type": "object",
+  "required": [
+    "meta",
+    "profile",
+    "stats",
+    "wallet",
+    "difficulty",
+    "inventory",
+    "unlocks"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": [
+        "save_version",
+        "build"
+      ],
+      "properties": {
+        "save_version": {
+          "const": 3
+        },
+        "build": {
+          "type": "string",
+          "minLength": 1
+        },
+        "migrated_from_build": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "profile": {
+      "type": "object",
+      "required": [
+        "display_name"
+      ],
+      "properties": {
+        "display_name": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "stats": {
+      "type": "object",
+      "required": [
+        "experience",
+        "level"
+      ],
+      "properties": {
+        "experience": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "level": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "wallet": {
+      "type": "object",
+      "required": [
+        "credits",
+        "tokens"
+      ],
+      "properties": {
+        "credits": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tokens": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "difficulty": {
+      "enum": [
+        "standard",
+        "veteran",
+        "nightmare"
+      ]
+    },
+    "inventory": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "required": [
+          "item",
+          "quantity"
+        ],
+        "properties": {
+          "item": {
+            "type": "string",
+            "minLength": 1
+          },
+          "quantity": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "unlocks": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

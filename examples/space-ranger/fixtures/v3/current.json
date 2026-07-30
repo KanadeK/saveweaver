@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "save_version": 3,
+    "build": "1.0.0"
+  },
+  "profile": {
+    "display_name": "Sol"
+  },
+  "stats": {
+    "experience": 5400,
+    "level": 7
+  },
+  "wallet": {
+    "credits": 2200,
+    "tokens": 3
+  },
+  "difficulty": "nightmare",
+  "inventory": [
+    {
+      "item": "quantum_key",
+      "quantity": 1
+    }
+  ],
+  "unlocks": [
+    "dash",
+    "shipyard",
+    "void_gate"
+  ]
+}

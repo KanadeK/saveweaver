@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="SaveWeaver is game-save migration CI: schemas, deterministic migrations, real old-save fixtures, locks, and audit receipts."
+    >
+    <meta name="theme-color" content="#0b1021">
+    <title>SaveWeaver — game-save compatibility CI</title>
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="SaveWeaver home">
+        <img src="logo.svg" width="34" height="34" alt="">
+        <span>SaveWeaver</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="#matrix">Live matrix</a>
+        <a href="#workflow">Workflow</a>
+        <a href="https://github.com/KanadeK/saveweaver">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">ENGINE-AGNOSTIC · ZERO RUNTIME DEPENDENCIES</p>
+          <h1>CI for the save files<br>your players already have.</h1>
+          <p class="lede">
+            Weave every historical JSON save through declarative migrations,
+            validate each version, and prove the result is deterministic before
+            the release reaches players.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="https://github.com/KanadeK/saveweaver#try-the-real-example">
+              Run the example
+            </a>
+            <a class="button secondary" href="https://github.com/KanadeK/saveweaver/releases">
+              Download v0.1.0
+            </a>
+          </div>
+          <pre aria-label="Quick start command"><code>node bin/saveweaver.js matrix --project examples/space-ranger</code></pre>
+        </div>
+        <div class="weave" aria-label="Three old save versions migrate into one verified current version">
+          <div class="save-slot slot-one"><span>OLD SAVE</span><strong>v1</strong></div>
+          <div class="save-slot slot-two"><span>OLD SAVE</span><strong>v2</strong></div>
+          <div class="save-slot slot-three"><span>CURRENT</span><strong>v3</strong></div>
+          <svg viewBox="0 0 560 360" aria-hidden="true">
+            <defs>
+              <linearGradient id="line" x1="0" x2="1">
+                <stop offset="0" stop-color="#59d7ff"/>
+                <stop offset=".55" stop-color="#9a7cff"/>
+                <stop offset="1" stop-color="#75f0bb"/>
+              </linearGradient>
+            </defs>
+            <path d="M70 65C220 65 205 180 365 180S420 180 500 180"/>
+            <path d="M70 180h430"/>
+            <path d="M70 295c150 0 135-115 295-115s55 0 135 0"/>
+          </svg>
+          <div class="verified"><span aria-hidden="true">✓</span><strong>release</strong><small>schema · hash · receipt</small></div>
+        </div>
+      </section>
+
+      <section class="proof" id="matrix">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">GENERATED FROM REPOSITORY FIXTURES</p>
+            <h2>A compatibility claim you can inspect.</h2>
+          </div>
+          <div class="summary" id="summary" aria-live="polite">Loading matrix…</div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fixture</th>
+                <th>Source</th>
+                <th>Target</th>
+                <th>Migration chain</th>
+                <th>Proof</th>
+              </tr>
+            </thead>
+            <tbody id="matrix-body">
+              <tr><td colspan="5">Loading generated matrix data…</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="proof-note">
+          Each passing row validates source and target schemas, runs twice for
+          deterministic SHA-256 output, then runs once more to prove current-save
+          idempotency.
+        </p>
+      </section>
+
+      <section class="workflow" id="workflow">
+        <p class="eyebrow">RELEASE WORKFLOW</p>
+        <h2>Guard the data contract, not just today's serializer.</h2>
+        <div class="steps">
+          <article>
+            <span>01</span>
+            <h3>Keep real old saves</h3>
+            <p>Commit small, synthetic or redacted fixtures from every supported public version.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Migrate as data</h3>
+            <p>Use ten deterministic operations. No eval, scripts, network, or hidden coercion.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Prove the path</h3>
+            <p>CI validates each contract, migration lock, replay hash, and final idempotency.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Write with evidence</h3>
+            <p>Explicit output, content-addressed backup, atomic replacement, and SHA-256 receipt.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>SaveWeaver · MIT licensed · built for game release pipelines</span>
+      <a href="https://github.com/KanadeK/saveweaver">Source and documentation →</a>
+    </footer>
+  </body>
+</html>
