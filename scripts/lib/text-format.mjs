@@ -29,3 +29,10 @@ export function inspectTextFormat(source, { extension, relative }) {
 
   return issues;
 }
+
+export function normalizeWindowsLauncher(source) {
+  return source
+    .replaceAll("\r\n", "\n")
+    .replaceAll("\r", "\n")
+    .replaceAll("\n", "\r\n");
+}

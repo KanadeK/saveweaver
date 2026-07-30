@@ -11,6 +11,7 @@ import {
   repositoryRoot,
   walkFiles,
 } from "./lib/repository.mjs";
+import { normalizeWindowsLauncher } from "./lib/text-format.mjs";
 import { createDeterministicZip, inspectStoredZip } from "./lib/zip.mjs";
 
 const artifacts = path.resolve(repositoryRoot, "artifacts");
@@ -61,6 +62,12 @@ for (const directory of portableRoots) {
     portableFiles.push(relativePath(filePath));
   }
 }
+const windowsLauncherData = Buffer.from(
+  normalizeWindowsLauncher(
+    await readFile(path.join(repositoryRoot, "portable", "saveweaver.cmd"), "utf8"),
+  ),
+  "utf8",
+);
 const prefix = `saveweaver-v${PACKAGE_VERSION}`;
 const entries = [...new Set(portableFiles)].sort().map((relative) => ({
   name:
@@ -70,6 +77,7 @@ const entries = [...new Set(portableFiles)].sort().map((relative) => ({
         ? `${prefix}/saveweaver.cmd`
         : `${prefix}/${relative}`,
   source: path.join(repositoryRoot, relative),
+  data: relative === "portable/saveweaver.cmd" ? windowsLauncherData : undefined,
   executable: relative === "portable/saveweaver" || relative === "bin/saveweaver.js",
 }));
 const zipName = `saveweaver-v${PACKAGE_VERSION}-portable.zip`;

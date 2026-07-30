@@ -1,12 +1,23 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { inspectTextFormat } from "../scripts/lib/text-format.mjs";
+import {
+  inspectTextFormat,
+  normalizeWindowsLauncher,
+} from "../scripts/lib/text-format.mjs";
 
 test("Windows launchers accept either clean CRLF or LF checkouts", () => {
   const options = { extension: ".cmd", relative: "portable/saveweaver.cmd" };
   assert.deepEqual(inspectTextFormat("@echo off\r\nnode app.js\r\n", options), []);
   assert.deepEqual(inspectTextFormat("@echo off\nnode app.js\n", options), []);
+  assert.equal(
+    normalizeWindowsLauncher("@echo off\nnode app.js\n"),
+    "@echo off\r\nnode app.js\r\n",
+  );
+  assert.equal(
+    normalizeWindowsLauncher("@echo off\r\nnode app.js\r\n"),
+    "@echo off\r\nnode app.js\r\n",
+  );
 });
 
 test("non-Windows text files still require LF", () => {
