@@ -61,7 +61,7 @@ saveweaver migrate player-save.json \
 ## CI
 
 ```yaml
-- uses: KanadeK/saveweaver@v0.1.0
+- uses: KanadeK/saveweaver@v0.1.1
   with:
     project: path/to/save-contract
 ```

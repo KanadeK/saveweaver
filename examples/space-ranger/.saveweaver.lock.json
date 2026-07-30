@@ -30,6 +30,6 @@
   "project": "space-ranger",
   "tool": {
     "name": "game-saveweaver",
-    "version": "0.1.0"
+    "version": "0.1.1"
   }
 }

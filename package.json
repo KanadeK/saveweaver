@@ -1,6 +1,6 @@
 {
   "name": "game-saveweaver",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Engine-agnostic game-save migration, compatibility testing, and audit receipts for CI.",
   "type": "module",
   "bin": {

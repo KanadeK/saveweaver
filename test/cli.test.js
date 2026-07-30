@@ -24,7 +24,7 @@ test("CLI exposes help and version", async () => {
   assert.equal(help.exitCode, 0);
   assert.match(help.stdout, /CI for the save files/);
   const version = await invoke(["--version"]);
-  assert.match(version.stdout, /^0\.1\.0/u);
+  assert.match(version.stdout, /^0\.1\.1/u);
 });
 
 test("matrix JSON output is machine-readable", async () => {

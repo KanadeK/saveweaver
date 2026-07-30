@@ -67,8 +67,8 @@ temporary files after inspection.
 
 `artifacts/` must contain:
 
-- `saveweaver-v0.1.0.tgz`;
-- `saveweaver-v0.1.0-portable.zip`;
+- `saveweaver-v0.1.1.tgz`;
+- `saveweaver-v0.1.1-portable.zip`;
 - `checksums.sha256`;
 - `release-manifest.json`.
 
@@ -79,7 +79,7 @@ package run or clean checkout must produce the same two artifact hashes.
 
 ## Publication acceptance
 
-A local green gate is not a public release. Before calling v0.1.0 released,
+A local green gate is not a public release. Before calling v0.1.1 released,
 verify:
 
 ```sh
@@ -88,7 +88,7 @@ git status --short
 git shortlog -sne HEAD
 gh repo view KanadeK/saveweaver --json visibility,url,defaultBranchRef
 gh run list --repo KanadeK/saveweaver --limit 20
-gh release view v0.1.0 --repo KanadeK/saveweaver
+gh release view v0.1.1 --repo KanadeK/saveweaver
 ```
 
 The repository must be public, all required workflows green, the tag must point

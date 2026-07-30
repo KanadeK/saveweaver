@@ -72,7 +72,7 @@ output again to check idempotency.
 From a GitHub Release tarball:
 
 ```sh
-npm install --global ./saveweaver-v0.1.0.tgz
+npm install --global ./saveweaver-v0.1.1.tgz
 saveweaver --version
 ```
 
@@ -230,7 +230,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: KanadeK/saveweaver@v0.1.0
+      - uses: KanadeK/saveweaver@v0.1.1
         with:
           project: path/to/save-contract
 ```
