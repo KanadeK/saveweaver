@@ -302,7 +302,7 @@ The release gate is:
 node scripts/verify.mjs
 ```
 
-It performs syntax/JSON/link/secret checks, formatting checks, 85 tests with
+It performs syntax/JSON/link/secret checks, formatting checks, 89 tests with
 coverage thresholds, the example contract lock, the four-row compatibility
 matrix, deterministic npm/portable packaging, checksums, a clean temporary
 package install, and an installed-CLI matrix smoke test.

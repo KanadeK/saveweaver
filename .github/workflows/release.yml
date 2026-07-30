@@ -23,15 +23,22 @@ jobs:
       - name: Verify tag matches package version
         run: node scripts/verify-tag.mjs "${GITHUB_REF_NAME}"
       - run: node scripts/verify.mjs
-      - name: Publish GitHub Release
+      - name: Publish or refresh GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: >-
-          gh release create "${GITHUB_REF_NAME}"
-          artifacts/saveweaver-v*.tgz
-          artifacts/saveweaver-v*-portable.zip
-          artifacts/checksums.sha256
-          artifacts/release-manifest.json
-          --verify-tag
-          --generate-notes
-          --title "SaveWeaver ${GITHUB_REF_NAME}"
+        run: |
+          assets=(
+            artifacts/saveweaver-v*.tgz
+            artifacts/saveweaver-v*-portable.zip
+            artifacts/checksums.sha256
+            artifacts/release-manifest.json
+          )
+          if gh release view "${GITHUB_REF_NAME}" >/dev/null 2>&1; then
+            gh release upload "${GITHUB_REF_NAME}" "${assets[@]}" --clobber
+            gh release edit "${GITHUB_REF_NAME}" --title "SaveWeaver ${GITHUB_REF_NAME}"
+          else
+            gh release create "${GITHUB_REF_NAME}" "${assets[@]}" \
+              --verify-tag \
+              --generate-notes \
+              --title "SaveWeaver ${GITHUB_REF_NAME}"
+          fi

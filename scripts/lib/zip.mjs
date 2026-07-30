@@ -1,26 +1,11 @@
 import { readFile, writeFile } from "node:fs/promises";
 
+import { crc32 } from "./crc32.mjs";
+
 const LOCAL_SIGNATURE = 0x04034b50;
 const CENTRAL_SIGNATURE = 0x02014b50;
 const END_SIGNATURE = 0x06054b50;
 const FIXED_DOS_DATE = 0x0021;
-
-const CRC_TABLE = new Uint32Array(256);
-for (let index = 0; index < 256; index += 1) {
-  let value = index;
-  for (let bit = 0; bit < 8; bit += 1) {
-    value = value & 1 ? 0xedb88320 ^ (value >>> 1) : value >>> 1;
-  }
-  CRC_TABLE[index] = value >>> 0;
-}
-
-export function crc32(buffer) {
-  let crc = 0xffffffff;
-  for (const byte of buffer) {
-    crc = CRC_TABLE[(crc ^ byte) & 0xff] ^ (crc >>> 8);
-  }
-  return (crc ^ 0xffffffff) >>> 0;
-}
 
 function localHeader(name, data, crc) {
   const nameBytes = Buffer.from(name, "utf8");

@@ -74,7 +74,8 @@ temporary files after inspection.
 
 `verify-release.mjs` checks the manifest hashes and sizes, every stored ZIP
 entry CRC, an npm install into a fresh temporary directory, the installed
-version, and a compatibility matrix run through the installed CLI.
+version, and a compatibility matrix run through the installed CLI. A second
+package run or clean checkout must produce the same two artifact hashes.
 
 ## Publication acceptance
 

@@ -104,6 +104,9 @@ node scripts/verify-release.mjs
   script through npm.
 - clean install failure: inspect `npm pack --json`; confirm every runtime file
   is in `package.json` `files`.
+- tarball hash differs by operating system: inspect executable modes, then
+  verify `scripts/lib/tarball.mjs` still canonicalizes the npm archive before
+  hashing.
 - ZIP CRC failure: do not publish the ZIP; rerun packaging from a clean
   checkout and inspect changes to `scripts/lib/zip.mjs`.
 - hash mismatch: delete only the repository's resolved `artifacts/` directory

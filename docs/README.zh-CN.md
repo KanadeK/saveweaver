@@ -25,7 +25,7 @@ node bin/saveweaver.js lock --project examples/space-ranger --check
 node scripts/verify.mjs
 ```
 
-最后一条命令会运行静态检查、格式检查、85 项测试和覆盖率门槛，随后生成 npm tarball、
+最后一条命令会运行静态检查、格式检查、89 项测试和覆盖率门槛，随后生成 npm tarball、
 便携 ZIP、SHA-256 清单，并在干净临时目录安装产物、调用已安装 CLI 再跑一次兼容矩阵。
 
 ## 接入自己的游戏

@@ -12,6 +12,7 @@ import {
   walkFiles,
 } from "./lib/repository.mjs";
 import { normalizeWindowsLauncher } from "./lib/text-format.mjs";
+import { normalizeNpmTarball } from "./lib/tarball.mjs";
 import { createDeterministicZip, inspectStoredZip } from "./lib/zip.mjs";
 
 const artifacts = path.resolve(repositoryRoot, "artifacts");
@@ -41,7 +42,14 @@ if (packed.status !== 0) {
 const packResult = JSON.parse(packed.stdout);
 const npmName = packResult[0].filename;
 const tarballName = `saveweaver-v${PACKAGE_VERSION}.tgz`;
-await rename(path.join(artifacts, npmName), path.join(artifacts, tarballName));
+const tarballPath = path.join(artifacts, tarballName);
+await rename(path.join(artifacts, npmName), tarballPath);
+await writeFile(
+  tarballPath,
+  normalizeNpmTarball(await readFile(tarballPath), {
+    executablePaths: ["package/bin/saveweaver.js"],
+  }),
+);
 await rm(path.join(artifacts, ".npm-cache"), { recursive: true, force: true });
 
 const portableRoots = ["action", "bin", "docs", "src"];

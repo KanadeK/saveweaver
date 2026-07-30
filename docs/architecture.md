@@ -61,9 +61,10 @@ migration and target validation pass.
 
 Receipts and lock files omit timestamps. JSON hashing recursively sorts object
 keys. The compatibility matrix runs each fixture migration twice and compares
-output hashes. Release ZIP entries are sorted, stored with fixed DOS timestamps,
-and verified by CRC-32. Release manifests contain sizes and SHA-256 values but
-no build time.
+output hashes. The npm tarball is rebuilt with sorted ustar entries, normalized
+permissions, a fixed timestamp, and a platform-neutral stored gzip stream.
+Release ZIP entries are sorted, stored with fixed DOS timestamps, and verified
+by CRC-32. Release manifests contain sizes and SHA-256 values but no build time.
 
 ## Extension strategy
 
